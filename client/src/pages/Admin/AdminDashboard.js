@@ -1,22 +1,23 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
-import UserMenu from '../../components/Layout/UserMenu'
+import AdminMenu from '../../components/Layout/AdminMenu'
 import { useAuth } from '../../context/auth'
 
-const Dashboard = () => {
-  const [auth] = useAuth() 
+const AdminDashboard = () => {
+  const [auth] = useAuth()
   return (
-    <Layout title={'DashBoard'}>
+    <Layout>
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col-md-3">
-            <UserMenu />
+            <AdminMenu/>
           </div>
           <div className="col-md-9">
             <div className="card w-75 p-3">
-             <h3>User Name: {auth?.user?.name}</h3>  
-             <h3>User email: {auth?.user?.email}</h3>  
-             <h3>User phone: {auth?.user?.phone}</h3>
+              <h3>Admin Name: {auth?.user?.name}</h3>
+              <h3>Admin Email: {auth?.user?.email}</h3>
+              <h3>Admin Phone: {auth?.user?.phone}</h3>
             </div>
           </div>
         </div>
@@ -25,4 +26,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard
+export default AdminDashboard
