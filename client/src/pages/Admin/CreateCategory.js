@@ -27,7 +27,7 @@ const CreateCategory = () => {
         toast.success(`${name} is created`)
         getAllCategory()
       } else{
-        toast.error(data.message)
+        toast.error(data?.message)
       }
     } catch (error) {
       console.log(error)
@@ -41,8 +41,8 @@ const CreateCategory = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/category/get-category`
       );
-      if (data.success) {
-        setCategories(data.category);
+      if (data?.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
