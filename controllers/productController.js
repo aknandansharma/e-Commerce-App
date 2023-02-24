@@ -248,3 +248,24 @@ export const productListController = async (req, res) => {
     });
   }
 };
+
+// Searching Products 
+export const productSearchController = async (req, res) => {
+  try {
+   const {keyword} = req.params
+   const results =  await productModel.find({
+    $or: [
+      {name:{$regex :keyword, $options: "i"}},
+      {description:{$regex :keyword, $options: "i"}}
+    ]
+   }).select("-photo")
+    res.json(results)
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "error in Searching products API",
+      error,
+    });
+  }
+};
