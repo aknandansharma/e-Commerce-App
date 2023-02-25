@@ -1,7 +1,21 @@
 import productModel from "../models/productModel.js";
-import categoryModel from "../models/categoryModel.js"
+import categoryModel from "../models/categoryModel.js";
+import orderModel from "../models/orderModel.js";
+
 import fs from "fs";
 import slugify from "slugify";
+import braintree from "braintree";
+import dotenv from "dotenv"
+
+dotenv.config()
+
+// payment gateway
+var gateway = new braintree.BraintreeGateway({
+  environment: braintree.Environment.Sandbox,
+  merchantId: process.env.BRAINTREE_MERCHANR_ID,
+  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+  privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+});
 
 // creating products
 export const createProductController = async (req, res) => {
@@ -250,17 +264,19 @@ export const productListController = async (req, res) => {
   }
 };
 
-// Searching Products 
+// Searching Products
 export const productSearchController = async (req, res) => {
   try {
-   const {keyword} = req.params
-   const results =  await productModel.find({
-    $or: [
-      {name:{$regex :keyword, $options: "i"}},
-      {description:{$regex :keyword, $options: "i"}}
-    ]
-   }).select("-photo")
-    res.json(results)
+    const { keyword } = req.params;
+    const results = await productModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    res.json(results);
   } catch (error) {
     console.log(error);
     res.status(400).send({
@@ -271,7 +287,7 @@ export const productSearchController = async (req, res) => {
   }
 };
 
-// Similar Products 
+// Similar Products
 export const realtedProductController = async (req, res) => {
   try {
     const { pid, cid } = req.params;
@@ -359,11 +375,10 @@ export const brainTreePaymentController = async (req, res) => {
           res.json({ ok: true });
         } else {
           res.status(500).send(error);
-        }
+        } 
       }
     );
   } catch (error) {
     console.log(error);
   }
 };
-

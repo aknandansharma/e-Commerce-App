@@ -90,3 +90,9 @@ font-family: 'Poppins',sans-serif; */
     text-decoration: none !important;
     color: black !important;
 }
+
+.d-flex{
+    margin-left: 50px;
+}
+
+/* banner */

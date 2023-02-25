@@ -118,6 +118,18 @@ const HomePage = () => {
 
   return (
     <Layout title={"All products - Best Offers"}>
+      <div className="flip-box">
+        <div className="flip-box-inner">
+          <div className="flip-box-front">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvfI_nSQlfBDvB28BNqe3zo6IhVG9J2yzQaw&usqp=CAU"
+              alt="Paris"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
+        </div>
+      </div>
+
       <div className="row mt-3">
         <div className="col-md-3">
           <h3 className="text-center mt-4">Filter By Category</h3>
@@ -171,13 +183,19 @@ const HomePage = () => {
                     {" "}
                     ₹ {p.price}
                   </p>
-                  <button className="btn btn-primary ms-2" onClick={() => navigate(`/product/${p.slug}`)} >More Details</button>
+                  <button
+                    className="btn btn-primary ms-2"
+                    onClick={() => navigate(`/product/${p.slug}`)}
+                  >
+                    More Details
+                  </button>
 
-                  <button className="btn btn-secondary ms-2" 
-                  onClick={() => {
-                    setCart([...cart, p])
-                    toast.success('Item Added to cart')
-                  }}
+                  <button
+                    className="btn btn-secondary ms-2"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      toast.success("Item Added to cart");
+                    }}
                   >
                     Add to cart
                   </button>
