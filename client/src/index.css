@@ -95,4 +95,31 @@ font-family: 'Poppins',sans-serif; */
     margin-left: 50px;
 }
 
-/* banner */
+/*=================== My Own Css =======================*/
+
+.filter{
+    background-color: rgb(228, 221, 221);
+    color: rgb(228, 67, 67);
+    border-bottom: 2px solid rgb(82, 76, 76);
+    margin: 25px;
+    padding: 2px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.imgsize{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+.cartBody{
+    background-color: rgb(236, 234, 234);
+    color: black;
+}
+
+.loadingbtn{
+    align-items: center;
+    justify-content: center;
+}

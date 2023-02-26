@@ -122,9 +122,9 @@ const HomePage = () => {
         <div className="flip-box-inner">
           <div className="flip-box-front">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvfI_nSQlfBDvB28BNqe3zo6IhVG9J2yzQaw&usqp=CAU"
+              src="https://lh3.googleusercontent.com/BmuMWGspyTR5ChyuMezFbu9SAGStJBhbT1OZ3fQA8yxPr2Pj2-BMGs8hiQLYoAwn91nHYDm-IlxWp0VUBSk1SmVo38aH7JK_y17lF66r7zpMlbz-2riyl8ldF0bE7dDjg5mNafZ5ANxdijBRGn551q_BX-NTWUu_85YlCqZXpY9EGRghJd4rLYFzMEafmIHrpKODrboHPALjZMhHxSYs7wXTA_o7xySuuqOnW-6Q_eWAELjltZAfuoG3n0D7i3oQgDy-dWSiYdJOjw1MkSLEo7-D7DGPGdc7Ha1ts6KcVIyyeZgnDqbdGhb0TaxfRp7Owt-fowHfBrEOiwnDyXMYYSRM3az0-AN7DWQhxipNv7mKnuups7nsxA2uHztdfpRBZfVB57Yd5p0r9X0AzvPY6qc4aMDpADOPkoTOlkcQsOtkW2YrZut_4TcgPJA_zOoBWN6pKw_aa4t6GpnT4JJegvSSAXQua1tzfd0HcvYKQZwzPDNjXFbRlCNoVwDEG00c-E7VWctp5OwpQAxJP5lGtvraq9pT0jlyOHENqTP5dlpcF7eGby5pXyNI5tUPhf2B-usLptRDgHMibNpkRYw_q7gicp-NRh6Mk0yRAiwOGSYJnYt3c0jLOb-CfXb9o-IQkE1OFPI-yUc83EWJK5kJg_2r1UrvLYL9APiUxgThx5zBRrzW0D4bu27Id8krTXLU-L9oydsgKojKjvfTqt939myQ_lDzN_5maFN9f3bXqbRVXLImGXXKq6G4p2R-p2LqLO8uQ-WO_bxNAdGJD8W_9e79dACanCsiAcPgO6ZJcHwngwWo0G3svQIzfIVw_eBoivta_qzKyQZEDdlRHZs4j9seHnDh6KsGZAUqKfS4dvlCJGYA2lZt1y_EDkK2gymMVvPfZeD41QvRw_w6QREqXDqeTFyZ72V1_uNJYsyIAIUoDI2sdg=w1038-h585-s-no?authuser=0"
               alt="Paris"
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "100%", height: "510px" }}
             />
           </div>
         </div>
@@ -132,8 +132,8 @@ const HomePage = () => {
 
       <div className="row mt-3">
         <div className="col-md-3">
-          <h3 className="text-center mt-4">Filter By Category</h3>
-          <div className="d-flex flex-column">
+          <h3 className="text-center mt-4 filter">Filter By Category</h3>
+          <div className="d-flex flex-column cate">
             {categories?.map((c) => (
               <Checkbox
                 key={c._id}
@@ -144,7 +144,7 @@ const HomePage = () => {
             ))}
           </div>
           {/* Prices Filter */}
-          <h3 className="text-center mt-4">Filter By Prices</h3>
+          <h3 className="text-center mt-4 filter">Filter By Prices</h3>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
@@ -157,7 +157,7 @@ const HomePage = () => {
           <div className="d-flex flex-column">
             <button
               onClick={() => window.location.reload()}
-              className="btn btn-danger mt-4"
+              className="btn btn-danger mt-4 "
             >
               Reset Filters
             </button>
@@ -165,23 +165,23 @@ const HomePage = () => {
         </div>
         <div className="col-md-9">
           {/* {JSON.stringify(radio, null, 4)} */}
-          <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap">
+          <h1 className="text-center filter">All Products</h1>
+          <div className="d-flex flex-wrap ">
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
+                  className="imgsize "
                   alt={p.name}
                 />
-                <div className="card-body">
+                <div className="card-body cartBody">
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">
                     {p.description.substring(0, 29)}...
                   </p>
                   <p className="card-text text-center font-size-10">
                     {" "}
-                    ₹ {p.price}
+                    $ {p.price}
                   </p>
                   <button
                     className="btn btn-primary ms-2"
@@ -203,7 +203,7 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <div className="m-2 p-3">
+          <div className="m-2 p-3 loadingbtn">
             {products && products.length < total && (
               <button
                 className="btn btn-primary"
