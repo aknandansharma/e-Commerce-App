@@ -122,8 +122,8 @@ const HomePage = () => {
         <div className="flip-box-inner">
           <div className="flip-box-front">
             <img
-              src="https://lh3.googleusercontent.com/BmuMWGspyTR5ChyuMezFbu9SAGStJBhbT1OZ3fQA8yxPr2Pj2-BMGs8hiQLYoAwn91nHYDm-IlxWp0VUBSk1SmVo38aH7JK_y17lF66r7zpMlbz-2riyl8ldF0bE7dDjg5mNafZ5ANxdijBRGn551q_BX-NTWUu_85YlCqZXpY9EGRghJd4rLYFzMEafmIHrpKODrboHPALjZMhHxSYs7wXTA_o7xySuuqOnW-6Q_eWAELjltZAfuoG3n0D7i3oQgDy-dWSiYdJOjw1MkSLEo7-D7DGPGdc7Ha1ts6KcVIyyeZgnDqbdGhb0TaxfRp7Owt-fowHfBrEOiwnDyXMYYSRM3az0-AN7DWQhxipNv7mKnuups7nsxA2uHztdfpRBZfVB57Yd5p0r9X0AzvPY6qc4aMDpADOPkoTOlkcQsOtkW2YrZut_4TcgPJA_zOoBWN6pKw_aa4t6GpnT4JJegvSSAXQua1tzfd0HcvYKQZwzPDNjXFbRlCNoVwDEG00c-E7VWctp5OwpQAxJP5lGtvraq9pT0jlyOHENqTP5dlpcF7eGby5pXyNI5tUPhf2B-usLptRDgHMibNpkRYw_q7gicp-NRh6Mk0yRAiwOGSYJnYt3c0jLOb-CfXb9o-IQkE1OFPI-yUc83EWJK5kJg_2r1UrvLYL9APiUxgThx5zBRrzW0D4bu27Id8krTXLU-L9oydsgKojKjvfTqt939myQ_lDzN_5maFN9f3bXqbRVXLImGXXKq6G4p2R-p2LqLO8uQ-WO_bxNAdGJD8W_9e79dACanCsiAcPgO6ZJcHwngwWo0G3svQIzfIVw_eBoivta_qzKyQZEDdlRHZs4j9seHnDh6KsGZAUqKfS4dvlCJGYA2lZt1y_EDkK2gymMVvPfZeD41QvRw_w6QREqXDqeTFyZ72V1_uNJYsyIAIUoDI2sdg=w1038-h585-s-no?authuser=0"
-              alt="Paris"
+              src="https://i.pinimg.com/564x/5d/2a/89/5d2a89a2e339539dc16058feed0462c0.jpg"
+              alt="this is banner"
               style={{ width: "100%", height: "510px" }}
             />
           </div>
@@ -179,10 +179,7 @@ const HomePage = () => {
                   <p className="card-text">
                     {p.description.substring(0, 29)}...
                   </p>
-                  <p className="text-center priceText">
-                    {" "}
-                    $ {p.price}
-                  </p>
+                  <p className="text-center priceText"> $ {p.price}</p>
                   <button
                     className="btn btn-primary ms-2"
                     onClick={() => navigate(`/product/${p.slug}`)}
