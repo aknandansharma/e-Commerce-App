@@ -123,3 +123,10 @@ font-family: 'Poppins',sans-serif; */
     align-items: center;
     justify-content: center;
 }
+.priceText{
+    font-size: large;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: green;
+}

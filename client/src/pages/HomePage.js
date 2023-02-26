@@ -179,7 +179,7 @@ const HomePage = () => {
                   <p className="card-text">
                     {p.description.substring(0, 29)}...
                   </p>
-                  <p className="card-text text-center font-size-10">
+                  <p className="text-center priceText">
                     {" "}
                     $ {p.price}
                   </p>
